@@ -6,13 +6,24 @@
 </head>
 <body>
 <h1 style="color: darkgreen;">My wardrobe game</h1>
+<form id="saveForm">
 Name: <input type="text" id="name" required><br/>
+<button type="submit" id="saveBtn">Save</button>
+</form><br/>
 
-<button type="submit" id="openBrn">Open closet</button>
-<button type="submit" id="closeBtn">Close closet</button><br/>
-<button type="submit" id="getInsideBtn">Get in the closet</button>
-<button type="submit" id="getOutsideBtn">Get out of the closet</button><br/>
-<button type="submit" id="kickBtn">Kick the closet</button>
 
+<p>Wardrobe functions: </p><br/>
+
+<button type="submit" id="openBtn" style="width:100px">Open</button><br/>
+<button type="submit" id="closeBtn" style="width:100px">Close</button><br/>
+<button type="submit" id="getInsideBtn" style="width:100px">Go in</button><br/>
+<button type="submit" id="getOutsideBtn" style="width:100px">Get out</button><br/>
+<button type="submit" id="kickBtn" style="width:100px">Head First</button><br/><br/><br/>
+
+
+<robin id="wardrobes">No closet is created yet</robin>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="registry.js"></script>
 </body>
 </html>
