@@ -1,5 +1,5 @@
 function getWardrobes() {
-    $.get("/api/wardrobe", function (data) {
+    $.get("/api/wardrobe/", function (data) {
 
         if (data.length <= 0){
             return
@@ -9,7 +9,7 @@ function getWardrobes() {
 
         for (var i = 0; i < data.length; i++) {
 
-            html += "<p>" + data[i].name + " - " + "</p>";
+            html += "<p>" + data[i].name + " - " + data[i].id + "</p>";
         }
         $("#wardrobes").html(html);
     });
@@ -19,12 +19,14 @@ function saveWardrobe(e) {
     e.preventDefault();
 
     var name = $("#name").val();
+    var id = $("#id").val();
 
-    console.log("Name of the wardrobe: " + name);
+    console.log("Name of the wardrobe: " + name + ", id: " + id);
 
-    $.get("/api/wardrobe" + name + "/", function() {
+    $.get("/api/wardrobe/" + name + "/" + id, function() {
         getWardrobes();
-    });  //deze get verwijst naar de @GetMapping
+    });
+    //deze get verwijst naar de @GetMapping
 
     $("#name").val("");
 }
