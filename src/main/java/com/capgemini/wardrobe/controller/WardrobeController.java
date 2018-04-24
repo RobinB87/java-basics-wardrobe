@@ -21,9 +21,9 @@ public class WardrobeController {
      * wardrobe functionalities
      */
 
-    @GetMapping("/{name}")
-    public void addList(@PathVariable String name){
-        Wardrobe wardrobe = new Wardrobe(name);
+    @GetMapping("/{id}/{name}")
+    public void addList(@PathVariable int id, @PathVariable String name){
+        Wardrobe wardrobe = new Wardrobe(id, name);
         wardrobeList.add(wardrobe);
     }
 
