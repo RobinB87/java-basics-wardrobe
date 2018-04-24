@@ -1,5 +1,5 @@
 function getWardrobes() {
-    $.get("/api/wardrobe/", function (data) {
+    $.get("/api/wardrobe", function (data) {
 
         if (data.length <= 0){
             return
@@ -22,7 +22,7 @@ function saveWardrobe(e) {
 
     console.log("Name of the wardrobe: " + name);
 
-    $.get("/api/wardrobe/" + name + "/", function() {
+    $.get("/api/wardrobe" + name + "/", function() {
         getWardrobes();
     });  //deze get verwijst naar de @GetMapping
 

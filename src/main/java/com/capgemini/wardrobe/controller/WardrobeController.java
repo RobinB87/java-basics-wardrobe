@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
-
+//HTTP requests are handled by a controller.
 //controller class acts on both the model and the view (view = visualization of data (print))
 
 @RestController
