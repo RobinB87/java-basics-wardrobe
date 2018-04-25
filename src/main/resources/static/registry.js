@@ -1,35 +1,64 @@
-function getWardrobes() {
-    $.get("/api/wardrobe/", function (data) {
+function getWardrobe() {
+   var wardrobeResult = $.get("/api/wardrobe/get", function(data) {
+       var html = "<p>" + data.name + "</p>";
 
-        if (data.length <= 0){
-            return
-        }
-
-        var html = "";
-
-        for (var i = 0; i < data.length; i++) {
-
-            html += "<p>" + data[i].name + " - " + data[i].id + "</p>";
-        }
-        $("#wardrobes").html(html);
-    });
+       $("#wardrobe").html(html);
+   })
 }
 
-function saveWardrobe(e) {
+function saveWardrobe() {
+    var name = $("#name").val();
+    console.log(name);
+
+    $.post("/api/wardrobe/create",
+        {
+            name: name
+        },
+        function () {
+            getWardrobe();
+        });
+}
+
+$("#openBtn").click(function () {
+    $.post("/api/wardrobe/open", function () {
+        console.log("open!");
+        getWardrobe();
+    });
+});
+
+$("#closeBtn").click(function () {
+    $.post("/api/wardrobe/close", function () {
+        console.log("close!");
+        getWardrobe();
+    });
+});
+
+$("#getInsideBtn").click(function () {
+    $.post("/api/wardrobe/inside", function () {
+        console.log("I'm inside, yippay!!");
+        getWardrobe();
+    });
+});
+
+$("#getOutsideBtn").click(function () {
+    $.post("/api/wardrobe/outside", function () {
+        console.log("Scheisse!!, ik moet weer naar buiten :-(");
+        getWardrobe();
+    });
+});
+
+$("#headFirstBtn").click(function () {
+    $.post("/api/wardrobe/headfirst", function () {
+        console.log("Watch out! Coming through!!!!");
+        getWardrobe();
+    });
+});
+
+$("#saveBtn").click(function(e) {
     e.preventDefault();
 
-    var name = $("#name").val();
-    var id = $("#id").val();
-
-    console.log("Name of the wardrobe: " + name + ", id: " + id);
-
-    $.get("/api/wardrobe/" + name + "/" + id, function() {
-        getWardrobes();
-    });
-    //deze get verwijst naar de @GetMapping
-
-    $("#name").val("");
-}
+    saveWardrobe();
+});
 
 $("#saveForm").submit(saveWardrobe);
-getWardrobes();
+getWardrobe();

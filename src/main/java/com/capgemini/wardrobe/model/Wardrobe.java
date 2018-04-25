@@ -2,27 +2,21 @@ package com.capgemini.wardrobe.model;
 
 public class Wardrobe {
 
-    private int id;
-    private String name = "";
+    private String name;
     private boolean isOpen;
     private boolean isInside;
     private boolean isBroken;
 
-    //parameterloze constructor, nodig voor bootstrap
+    //parameterloze constructor, nodig voor spring boot
     public Wardrobe() {
     }
 
     //constructor met id en name
-    public Wardrobe(int id, String name) {
-        this.id = id;
+    public Wardrobe(String name) {
         this.name = name;
     }
 
     //getters voor de variabelen
-    public int getId() {
-        return id;
-    }
-
     public String getName() {
         return name;
     }
@@ -37,5 +31,22 @@ public class Wardrobe {
 
     public boolean isBroken() {
         return isBroken;
+    }
+
+    //setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+
+    public void setInside(boolean inside) {
+        isInside = inside;
+    }
+
+    public void setBroken(boolean broken) {
+        isBroken = broken;
     }
 }

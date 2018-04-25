@@ -1,18 +1,13 @@
 package com.capgemini.wardrobe.controller;
 
 import com.capgemini.wardrobe.model.Wardrobe;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * HTTP requests are handled by a controller.
  * These components are easily identified by the @RestController annotation
  * Class controller handles GET requests for /wardrobe by returning a new instance of the Wardrobe class:
- *
+ * <p>
  * Controller class acts on both the model and the view (view = visualization of data (print))
  */
 
@@ -22,42 +17,54 @@ import java.util.ArrayList;
 public class WardrobeController {
 
     /**
-     * Create wardrobe list
      * Create wardrobe instance
      * Create getWardrobe function
      */
 
-    private static ArrayList<Wardrobe> wardrobeList = new ArrayList<>();
+    public static Wardrobe wardrobe;
 
-    @GetMapping("/{id}/{name}")
-    public void addWardrobe(@PathVariable int id, @PathVariable String name){
-        Wardrobe wardrobe = new Wardrobe(id, name);
-        wardrobeList.add(wardrobe);
+    @PostMapping("/create")
+    public void create(Wardrobe wardrobe){
+        this.wardrobe = wardrobe;
     }
 
-    @GetMapping("/")
-    public ArrayList<Wardrobe> getAllWardrobes(){
-        return wardrobeList;
+    //als je bovenstaande link intypt, met deze / dan ga je naar de lijst met all wardrobes
+    @GetMapping("/get")
+    public Wardrobe getWardrobe() {
+            return wardrobe;
     }
-
 
     /**
      * Wardrobe functionalities
      */
 
-    public void open(){
+    @PostMapping("/open")
+    public void open() {
+        this.wardrobe.setOpen(true);
     }
 
-    public void close(){
+    @PostMapping("/close")
+    public void close() {
+        this.wardrobe.setOpen(false);
     }
 
-    public void getIn(){
+    @PostMapping("/inside")
+    public void getIn() {
+        this.wardrobe.setInside(true);
     }
 
-    public void getOut(){
+    @PostMapping("/outside")
+    public void getOut() {
+        this.wardrobe.setInside(false);
     }
 
-    public int kick(int force){
-        return force;
+//    @PostMapping("/headfirst")
+//    public int headFirst(int force) {
+//        return force;
+//    }
+
+    @PostMapping("/headfirst")
+    public void isBroken(){
+        this.wardrobe.setBroken(true);
     }
 }
