@@ -23,7 +23,7 @@ function saveWardrobe() {
 
 
 /**
- * JavaScript Button Functionalities
+ * JavaScript button functionalities
  */
 
 // Buttons are closed until startgame is clicked
@@ -51,7 +51,7 @@ $("#openBtn").click(function () {
         $("#openBtn").hide();
         $("#getInsideBtn").show();
 
-        console.log("The door is open... please enter a possible world of pain, or find redemption!");
+        console.log("The door is open... enter it to find redemption... or a possible world of pain...! HUHAUHAHAHAHAHUHAAH");
         getWardrobe();
     });
 });
@@ -116,7 +116,7 @@ $("#headFirstBtn").click(function (e) {
 
 
 /**
- * JavaScript Save Functionalities
+ * JavaScript save functionalities
  */
 
 $("#saveBtn").click(function (e) {
