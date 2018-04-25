@@ -58,13 +58,8 @@ public class WardrobeController {
         this.wardrobe.setInside(false);
     }
 
-//    @PostMapping("/headfirst")
-//    public int headFirst(int force) {
-//        return force;
-//    }
-
-    @PostMapping("/headfirst")
-    public void isBroken(){
+    @PostMapping("/headfirst/{force}")
+    public void isBroken(int force){
         this.wardrobe.setBroken(true);
     }
 }

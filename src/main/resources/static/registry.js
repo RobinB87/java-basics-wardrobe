@@ -21,6 +21,7 @@ function saveWardrobe() {
 
 $("#openBtn").click(function () {
     $.post("/api/wardrobe/open", function () {
+        $("#openBtn").hide();
         console.log("open!");
         getWardrobe();
     });
@@ -62,3 +63,11 @@ $("#saveBtn").click(function(e) {
 
 $("#saveForm").submit(saveWardrobe);
 getWardrobe();
+
+function isOpen(open){
+    if(open){
+        $("#openBtn").hide();
+        $("#closeBtn").show();
+        return("Open");
+    }
+}
