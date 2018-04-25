@@ -38,6 +38,12 @@ public class WardrobeController {
      * Wardrobe functionalities
      */
 
+    @PostMapping("/start")
+    public void start() {
+        // start the game
+
+    }
+
     @PostMapping("/open")
     public void open() {
         this.wardrobe.setOpen(true);
