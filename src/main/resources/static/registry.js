@@ -1,8 +1,10 @@
 function getWardrobe() {
    var wardrobeResult = $.get("/api/wardrobe/get", function(data) {
-       var html = "<p>" + data.name + "</p>";
+       var html = "<p>" + data.name + "</p>" +
+           "<p>" + data.open + "</p>";
 
-       $("#wardrobe").html(html);
+
+       $("#gameConsole").html(html);
    })
 }
 
@@ -48,9 +50,13 @@ $("#getOutsideBtn").click(function () {
     });
 });
 
-$("#headFirstBtn").click(function () {
-    $.post("/api/wardrobe/headfirst", function () {
-        console.log("Watch out! Coming through!!!!");
+$("#headFirstBtn").click(function (e) {
+    e.preventDefault();
+    var force = $("#force").val();
+    $.post("/api/wardrobe/headfirst", {
+        force: force
+    }, function () {
+        console.log("Coming through with force!#$!! Watch out, force level: " + force + "!");
         getWardrobe();
     });
 });
@@ -71,3 +77,5 @@ function isOpen(open){
         return("Open");
     }
 }
+
+//isOpen();

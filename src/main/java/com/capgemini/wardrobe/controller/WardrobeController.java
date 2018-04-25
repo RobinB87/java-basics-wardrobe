@@ -41,6 +41,7 @@ public class WardrobeController {
     @PostMapping("/open")
     public void open() {
         this.wardrobe.setOpen(true);
+        System.out.println(wardrobe.isOpen());
     }
 
     @PostMapping("/close")
@@ -58,7 +59,7 @@ public class WardrobeController {
         this.wardrobe.setInside(false);
     }
 
-    @PostMapping("/headfirst/{force}")
+    @PostMapping("/headfirst")
     public void isBroken(int force){
         this.wardrobe.setBroken(true);
     }
