@@ -1,16 +1,22 @@
 function getWardrobe() {
     var wardrobeResult = $.get("/api/wardrobe/get", function (data) {
-        var html = "<p>" + data.name + "</p>" +
-            "<p>" + data.open + "</p>";
 
-        $("#gameConsole").html(html);
+        console.table(data);
+        var html = "<p>" + "Welcome " + data.name + ". Press the start button to start the game." + "</p>" +
+            "<p>" + "The door is open: " + data.open + "</p>" +
+            "<p>" + "You are now inside: " + data.inside + "</p>" +
+            "<p>" + "bbb" + "</p>" +
+            "<p>" + "ccc" + "</p>" +
+            "<p>" + "ddd" + "</p>"
+
+
+            $("#gameConsole").html(html);
     })
 }
 
-
 function saveWardrobe() {
     var name = $("#name").val();
-    console.log(name);
+    console.log("Welcome " + name + ". Press the start button to start the game.");
 
     $.post("/api/wardrobe/create",
         {
@@ -30,6 +36,7 @@ function saveWardrobe() {
 $("#openBtn").hide();
 $("#closeBtn").hide();
 $("#getInsideBtn").hide();
+$("#enterNarniaBtn").hide();
 $("#getOutsideBtn").hide();
 
 
@@ -39,7 +46,7 @@ $("#startBtn").click(function () {
         $("#startBtn").hide();
         $("#openBtn").show();
 
-        console.log("Welcome to the Narnia game, " + $("#name").val() + ". I hope you have fun! Press the 'open' button to continue.");
+        console.log("The Narnia game has started, " + $("#name").val() + ". I hope you have fun! Press the 'open' button to continue.");
         getWardrobe();
     });
 });
@@ -60,13 +67,13 @@ $("#getInsideBtn").click(function () {
     $.post("/api/wardrobe/inside", function () {
 
         $("#getInsideBtn").hide();
-
-        //TODO add button to go to Narnia
+        $("#enterNarniaBtn").show();
 
         console.log("I'm inside, yippay!!!");
         getWardrobe();
     });
 });
+
 
 /**
  * TODO Add functionality om naar Narnia te kunnen gaan (1:10 chance to go there) with Math.random().

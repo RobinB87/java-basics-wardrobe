@@ -24,14 +24,14 @@ public class WardrobeController {
     public static Wardrobe wardrobe;
 
     @PostMapping("/create")
-    public void create(Wardrobe wardrobe){
+    public void create(Wardrobe wardrobe) {
         this.wardrobe = wardrobe;
     }
 
-    //als je bovenstaande link intypt, met deze / dan ga je naar de lijst met all wardrobes
+    //met /get aan bovenstaande link toegevoegd zie je de huidige wardrobe
     @GetMapping("/get")
     public Wardrobe getWardrobe() {
-            return wardrobe;
+        return wardrobe;
     }
 
     /**
@@ -41,7 +41,6 @@ public class WardrobeController {
     @PostMapping("/start")
     public void start() {
         // start the game
-
     }
 
     @PostMapping("/open")
@@ -66,7 +65,7 @@ public class WardrobeController {
     }
 
     @PostMapping("/headfirst")
-    public void isBroken(int force){
+    public void isBroken(int force) {
         this.wardrobe.setBroken(true);
     }
 }
