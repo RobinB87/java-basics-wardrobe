@@ -7,7 +7,7 @@ function getWardrobe() {
             "<p>" + "You are now inside: " + data.inside + "</p>" +
             "<p>" + "You broke the closet: " + data.broken + "</p>";
 
-            $("#gameConsole").html(html);
+        $("#gameConsole").html(html);
     })
 }
 
@@ -71,23 +71,23 @@ $("#getInsideBtn").click(function () {
     });
 });
 
+// testfunctie
+// function narniaChance() {
+//     return (Math.random() > 0.5) ? true : false;
+// }
 
-$("#testBtn").click(function (){
-
+$("#enterNarniaBtn").click(function () {
     function calcChance() {
-        return (Math.random() > 0.5) ? true : false;
+        if (Math.random() > 0.5 === true) {
+            window.open('/narnia/enter', 'Narnia');
+        } else {
+            $("#enterNarniaBtn").hide();
+            $("#getOutsideBtn").show();
+        }
     }
-
-    var chance = calcChance();
-    console.log(chance);
-
-
+        var chance = calcChance();
+        console.log(chance);
 });
-
-/**
- * TODO Add functionality om naar Narnia te kunnen gaan (1:10 chance to go there) with Math.random().
- * TODO If not naar Narnia, then show goOutsideBtn and be able to get back in.
- */
 
 
 $("#closeBtn").click(function () {
@@ -108,8 +108,6 @@ $("#getOutsideBtn").click(function () {
         getWardrobe();
     });
 });
-
-
 
 
 /**
