@@ -5,10 +5,7 @@ function getWardrobe() {
         var html = "<p>" + "Welcome " + data.name + ". Press the start button to start the game." + "</p>" +
             "<p>" + "The door is open: " + data.open + "</p>" +
             "<p>" + "You are now inside: " + data.inside + "</p>" +
-            "<p>" + "bbb" + "</p>" +
-            "<p>" + "ccc" + "</p>" +
-            "<p>" + "ddd" + "</p>"
-
+            "<p>" + "You broke the closet: " + data.broken + "</p>";
 
             $("#gameConsole").html(html);
     })
@@ -75,6 +72,18 @@ $("#getInsideBtn").click(function () {
 });
 
 
+$("#testBtn").click(function (){
+
+    function calcChance() {
+        return (Math.random() > 0.5) ? true : false;
+    }
+
+    var chance = calcChance();
+    console.log(chance);
+
+
+});
+
 /**
  * TODO Add functionality om naar Narnia te kunnen gaan (1:10 chance to go there) with Math.random().
  * TODO If not naar Narnia, then show goOutsideBtn and be able to get back in.
@@ -99,6 +108,9 @@ $("#getOutsideBtn").click(function () {
         getWardrobe();
     });
 });
+
+
+
 
 /**
  * headfirst is an opportunity to make fun, as I really like humor and hobby's.

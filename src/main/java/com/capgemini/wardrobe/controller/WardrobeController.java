@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
  * Controller class acts on both the model and the view (view = visualization of data (print))
  */
 
+    //spring is library voor java
+    //jquery is library voor javascript
+
 
 @RestController
 @RequestMapping("/api/wardrobe")
@@ -68,4 +71,6 @@ public class WardrobeController {
     public void isBroken(int force) {
         this.wardrobe.setBroken(true);
     }
+
+
 }
