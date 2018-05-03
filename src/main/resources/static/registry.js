@@ -71,15 +71,10 @@ $("#getInsideBtn").click(function () {
     });
 });
 
-// testfunctie
-// function narniaChance() {
-//     return (Math.random() > 0.5) ? true : false;
-// }
-
 $("#enterNarniaBtn").click(function () {
     function calcChance() {
         if (Math.random() > 0.5 === true) {
-            window.open('/narnia/enter', 'Narnia');
+            window.open('/narnia.html', 'Narnia');
         } else {
             $("#enterNarniaBtn").hide();
             $("#getOutsideBtn").show();
@@ -89,14 +84,12 @@ $("#enterNarniaBtn").click(function () {
         console.log(chance);
 });
 
-
 $("#closeBtn").click(function () {
     $.post("/api/wardrobe/close", function () {
         console.log("close!");
         getWardrobe();
     });
 });
-
 
 $("#getOutsideBtn").click(function () {
     $.post("/api/wardrobe/outside", function () {
